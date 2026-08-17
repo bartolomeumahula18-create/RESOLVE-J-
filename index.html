@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RESOLVE JÁ — Angola</title>
+
+<style>
+:root{
+    --azul:#082B4C;
+    --azul2:#0B5EA8;
+    --dourado:#F5B800;
+    --fundo:#F5F7FA;
+    --branco:#fff;
+    --texto:#172033;
+    --cinza:#7A8493;
+    --borda:#E5E9EE;
+    --verde:#18A965;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#E9EDF1;
+    color:var(--texto);
+}
+
+.app{
+    width:100%;
+    max-width:460px;
+    min-height:100vh;
+    margin:auto;
+    background:var(--fundo);
+    position:relative;
+    overflow:hidden;
+}
+
+/* =========================
+   PÁGINAS
+========================= */
+
+.page{
+    display:none;
+    min-height:100vh;
+    padding-bottom:90px;
+}
+
+.page.active{
+    display:block;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.hero{
+    background:linear-gradient(145deg,#062746,#0B5688);
+    color:white;
+    padding:23px 20px 35px;
+    border-radius:0 0 32px 32px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--dourado);
+}
+
+.avatar{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    background:white;
+    color:var(--azul);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.hero small{
+    opacity:.8;
+}
+
+.hero h1{
+    font-size:29px;
+    line-height:1.15;
+    margin:8px 0 22px;
+}
+
+/* BARRA DE PESQUISA */
+
+.search-box{
+    background:white;
+    border-radius:15px;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.search-box span{
+    font-size:20px;
+    color:#777;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:14px;
+}
+
+/* LOCALIZAÇÃO */
+
+.location{
+    margin-top:12px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:13px;
+    padding:11px;
+    font-size:12px;
+}
+
+/* BOTÃO PRINCIPAL */
+
+.request-card{
+    background:white;
+    margin:-25px 18px 20px;
+    padding:18px;
+    border-radius:21px;
+    box-shadow:0 8px 28px rgba(0,0,0,.10);
+}
+
+.request-card button{
+    width:100%;
+    border:none;
+    background:var(--dourado);
+    color:var(--azul);
+    padding:17px;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:800;
+}
+
+.request-card p{
+    text-align:center;
+    color:var(--cinza);
+    font-size:11px;
+    margin-top:9px;
+}
+
+/* CATEGORIAS RÁPIDAS */
+
+.content{
+    padding:0 18px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:22px 0 14px;
+}
+
+.section-title h2{
+    font-size:18px;
+}
+
+.section-title button{
+    border:none;
+    background:none;
+    color:var(--azul2);
+    cursor:pointer;
+}
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.category{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:16px;
+    padding:14px 5px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.category-icon{
+    font-size:24px;
+    margin-bottom:7px;
+}
+
+.category span{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+}
+
+/* BANNER */
+
+.banner{
+    background:var(--azul);
+    color:white;
+    border-radius:20px;
+    padding:20px;
+    margin-top:24px;
+}
+
+.banner h3{
+    margin-bottom:7px;
+}
+
+.banner p{
+    font-size:12px;
+    opacity:.8;
+}
+
+/* PROFISSIONAIS */
+
+.professional{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:17px;
+    padding:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+.prof-avatar{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    background:#EAF2F8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.prof-info{
+    flex:1;
+}
+
+.prof-info h3{
+    font-size:14px;
+}
+
+.prof-info p{
+    font-size:11px;
+    color:var(--cinza);
+    margin:4px 0;
+}
+
+.rating{
+    color:#E5A700;
+    font-size:11px;
+}
+
+.verified{
+    color:var(--verde);
+    font-size:10px;
+    font-weight:bold;
+}
+
+.view{
+    border:none;
+    background:#EEF5FA;
+    color:var(--azul2);
+    border-radius:10px;
+    padding:9px;
+}
+
+/* =========================
+   TODAS AS CATEGORIAS
+========================= */
+
+.categories-page{
+    padding:22px 18px 100px;
+}
+
+.categories-search{
+    width:100%;
+    padding:15px;
+    border:1px solid var(--borda);
+    border-radius:14px;
+    background:white;
+    outline:none;
+    margin:15px 0;
+}
+
+.category-group{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:16px;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+.category-title{
+    padding:16px;
+    font-size:14px;
+    font-weight:bold;
+    display:flex;
+    justify-content:space-between;
+    cursor:pointer;
+}
+
+.services{
+    display:none;
+    padding:0 16px 15px;
+}
+
+.category-group.open .services{
+    display:block;
+}
+
+.service{
+    padding:10px 0;
+    border-top:1px solid #EFF1F3;
+    font-size:12px;
+    cursor:pointer;
+}
+
+.service:hover{
+    color:var(--azul2);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:100;
+    align-items:flex-end;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:460px;
+    margin:auto;
+    background:white;
+    border-radius:28px 28px 0 0;
+    padding:22px;
+    max-height:94vh;
+    overflow:auto;
+}
+
+.modal-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#F0F2F4;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid var(--borda);
+    border-radius:13px;
+    background:#F8F9FA;
+    outline:none;
+}
+
+textarea{
+    min-height:85px;
+    resize:none;
+}
+
+.primary{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:var(--azul);
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* =========================
+   TIPO DE CONTA
+========================= */
+
+.account-options{
+    display:grid;
+    gap:12px;
+}
+
+.account-option{
+    border:1px solid var(--borda);
+    border-radius:17px;
+    padding:17px;
+    cursor:pointer;
+}
+
+.account-option:hover{
+    border-color:var(--azul2);
+}
+
+.account-option strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.account-option small{
+    color:var(--cinza);
+    line-height:1.4;
+}
+
+/* =========================
+   CONTA SIMPLES
+========================= */
+
+.account-page{
+    padding:22px 18px 100px;
+}
+
+.account-header{
+    background:var(--azul);
+    color:white;
+    border-radius:22px;
+    padding:22px;
+    margin-bottom:18px;
+}
+
+.account-header h2{
+    margin-bottom:7px;
+}
+
+.account-header p{
+    font-size:12px;
+    opacity:.8;
+}
+
+/* =========================
+   VERIFICAÇÃO PROFISSIONAL
+========================= */
+
+.verification{
+    background:#F4F9FC;
+    border:1px solid #DCEAF3;
+    border-radius:15px;
+    padding:13px;
+    margin-bottom:17px;
+}
+
+.verification strong{
+    display:block;
+    font-size:12px;
+    color:var(--azul);
+    margin-bottom:5px;
+}
+
+.verification p{
+    font-size:11px;
+    color:var(--cinza);
+    line-height:1.4;
+}
+
+.upload{
+    border:2px dashed #CCD5DD;
+    background:#FAFBFC;
+    border-radius:15px;
+    padding:22px;
+    text-align:center;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+.upload span{
+    display:block;
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.upload p{
+    font-size:11px;
+    color:var(--cinza);
+}
+
+/* =========================
+   PERFIL
+========================= */
+
+.profile-page{
+    padding:22px 18px 100px;
+}
+
+.profile-card{
+    background:var(--azul);
+    color:white;
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+}
+
+.profile-photo{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:white;
+    color:var(--azul);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto auto 12px;
+    font-weight:bold;
+}
+
+.profile-menu{
+    background:white;
+    margin-top:15px;
+    border-radius:17px;
+    overflow:hidden;
+}
+
+.profile-item{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.results-page{
+    padding:22px 18px 100px;
+}
+
+.result{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:17px;
+    padding:15px;
+    margin-bottom:11px;
+}
+
+.result-top{
+    display:flex;
+    gap:12px;
+}
+
+.result-photo{
+    width:55px;
+    height:55px;
+    background:#EAF2F8;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.result-info{
+    flex:1;
+}
+
+.result-info h3{
+    font-size:14px;
+}
+
+.result-info p{
+    font-size:11px;
+    color:var(--cinza);
+    margin-top:4px;
+}
+
+.result-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:13px;
+}
+
+.contact{
+    border:none;
+    background:var(--azul);
+    color:white;
+    padding:9px 13px;
+    border-radius:10px;
+}
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    max-width:460px;
+    height:74px;
+    background:white;
+    border-top:1px solid var(--borda);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:80;
+}
+
+.nav{
+    text-align:center;
+    color:#78818C;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.nav-icon{
+    display:block;
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.nav.active{
+    color:var(--azul2);
+    font-weight:bold;
+}
+
+.center{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:var(--dourado);
+    border:5px solid white;
+    margin-top:-25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--azul);
+    font-size:27px;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+.hidden{
+    display:none !important;
+}
+
+@media(min-width:700px){
+    body{
+        padding:20px 0;
+    }
+
+    .app{
+        border-radius:25px;
+        box-shadow:0 10px 50px rgba(0,0,0,.12);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section class="page active" id="home">
+
+    <div class="hero">
+
+        <div class="top">
+
+            <div class="logo">
+                Resolve <span>Já</span>
+            </div>
+
+            <div class="avatar">
+                U
+            </div>
+
+        </div>
+
+        <small>Olá 👋</small>
+
+        <h1>
+            O que precisas<br>
+            resolver hoje?
+        </h1>
+
+        <!-- PESQUISA PRINCIPAL -->
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                id="homeSearch"
+                list="allServices"
+                placeholder="Pesquisar serviço ou profissão..."
+                oninput="pesquisarHome()"
+            >
+
+        </div>
+
+        <div class="location">
+            📍 <span id="location">Luanda, Angola</span>
+        </div>
+
+    </div>
+
+
+    <!-- PEDIDO -->
+
+    <div class="request-card">
+
+        <button onclick="abrirPedido()">
+            🔎 Encontrar um profissional
+        </button>
+
+        <p>
+            Diga o que precisa e encontre quem pode ajudar.
+        </p>
+
+    </div>
+
+
+    <main class="content">
+
+        <div class="section-title">
+
+            <h2>Serviços populares</h2>
+
+            <button onclick="abrirMais()">
+                Ver todos
+            </button>
+
+        </div>
+
+
+        <div class="quick">
+
+            <div class="category"
+                 onclick="selecionarServico('Electricista')">
+
+                <div class="category-icon">⚡</div>
+                <span>Electricista</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Médico')">
+
+                <div class="category-icon">🩺</div>
+                <span>Saúde</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Professor')">
+
+                <div class="category-icon">🎓</div>
+                <span>Professor</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Mecânico')">
+
+                <div class="category-icon">🔧</div>
+                <span>Mecânico</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Advogado')">
+
+                <div class="category-icon">⚖️</div>
+                <span>Advogado</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Engenheiro')">
+
+                <div class="category-icon">🏗️</div>
+                <span>Engenheiro</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="selecionarServico('Limpeza')">
+
+                <div class="category-icon">🧹</div>
+                <span>Limpeza</span>
+
+            </div>
+
+            <div class="category"
+                 onclick="abrirMais()">
+
+                <div class="category-icon">•••</div>
+                <span>Mais</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="banner">
+
+            <h3>Precisas de alguém agora?</h3>
+
+            <p>
+                Encontre profissionais disponíveis perto de si.
+            </p>
+
+        </div>
+
+
+        <div class="section-title">
+
+            <h2>Profissionais recomendados</h2>
+
+            <button onclick="mostrarResultados()">
+                Ver todos
+            </button>
+
+        </div>
+
+
+        <div class="professional">
+
+            <div class="prof-avatar">
+                ⚡
+            </div>
+
+            <div class="prof-info">
+
+                <h3>
+                    João Manuel ✓
+                </h3>
+
+                <p>
+                    Electricista · Luanda
+                </p>
+
+                <div class="rating">
+                    ★ 4.9 · 38 avaliações
+                </div>
+
+                <div class="verified">
+                    ✓ Perfil verificado
+                </div>
+
+            </div>
+
+            <button
+                class="view"
+                onclick="abrirPerfil('João Manuel','Electricista')">
+
+                Ver
+
+            </button>
+
+        </div>
+
+
+        <div class="professional">
+
+            <div class="prof-avatar">
+                🩺
+            </div>
+
+            <div class="prof-info">
+
+                <h3>
+                    Maria José ✓
+                </h3>
+
+                <p>
+                    Enfermeira · Luanda
+                </p>
+
+                <div class="rating">
+                    ★ 4.8 · 25 avaliações
+                </div>
+
+                <div class="verified">
+                    ✓ Perfil verificado
+                </div>
+
+            </div>
+
+            <button
+                class="view"
+                onclick="abrirPerfil('Maria José','Enfermeira')">
+
+                Ver
+
+            </button>
+
+        </div>
+
+    </main>
+
+</section>
+
+
+<!-- =====================================================
+     MAIS / TODAS AS CATEGORIAS
+===================================================== -->
+
+<section class="page categories-page" id="morePage">
+
+    <div class="section-title">
+
+        <h2>Mais</h2>
+
+        <button onclick="voltarHome()">
+            Fechar
+        </button>
+
+    </div>
+
+
+    <input
+        class="categories-search"
+        id="categorySearch"
+        placeholder="🔎 Pesquisar profissão ou serviço..."
+        oninput="filtrarCategorias()"
+    >
+
+
+    <div id="categoriesContainer"></div>
+
+
+    <div class="section-title">
+
+        <h2>A minha conta</h2>
+
+    </div>
+
+
+    <div class="category-group">
+
+        <div class="category-title"
+             onclick="abrirConta()">
+
+            <span>👤 Criar / entrar na conta</span>
+
+            <span>›</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-group">
+
+        <div class="category-title"
+             onclick="abrirDefinicoes()">
+
+            <span>⚙️ Definições</span>
+
+            <span>›</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-group">
+
+        <div class="category-title"
+             onclick="alert('Ajuda e suporte')">
+
+            <span>💬 Ajuda e suporte</span>
+
+            <span>›</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULTADOS
+===================================================== -->
+
+<section class="page results-page" id="resultsPage">
+
+    <div class="section-title">
+
+        <h2>Profissionais</h2>
+
+        <button onclick="voltarHome()">
+            Voltar
+        </button>
+
+    </div>
+
+    <p
+        id="searchDescription"
+        style="font-size:12px;color:#7A8493;margin-bottom:15px;">
+    </p>
+
+    <div id="resultsContainer"></div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTA
+===================================================== -->
+
+<section class="page account-page" id="accountPage">
+
+    <div class="account-header">
+
+        <h2>Minha conta</h2>
+
+        <p>
+            Escolha o tipo de conta que deseja criar.
+        </p>
+
+    </div>
+
+
+    <div class="account-options">
+
+        <div
+            class="account-option"
+            onclick="abrirContaSimples()">
+
+            <strong>
+                👤 Conta normal
+            </strong>
+
+            <small>
+                Para pessoas que possuem conhecimentos,
+                habilidades ou prestam serviços sem
+                necessidade de apresentar uma formação
+                académica superior.
+            </small>
+
+        </div>
+
+
+        <div
+            class="account-option"
+            onclick="abrirContaProfissional()">
+
+            <strong>
+                🎓 Profissional qualificado
+            </strong>
+
+            <small>
+                Para licenciados, mestres, doutores e
+                outros profissionais que pretendem
+                apresentar as suas qualificações.
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PERFIL
+===================================================== -->
+
+<section class="page profile-page" id="profilePage">
+
+    <div class="section-title">
+
+        <h2>Perfil</h2>
+
+        <button onclick="voltarHome()">
+            Voltar
+        </button>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <div class="profile-photo">
+            BM
+        </div>
+
+        <h2 id="profileName">
+            João Manuel
+        </h2>
+
+        <p id="profileProfession">
+            Electricista
+        </p>
+
+        <div style="margin-top:8px;color:#F5B800;">
+            ★ 4.9
+        </div>
+
+        <div
+            style="font-size:10px;margin-top:7px;">
+            ✓ Perfil verificado
+        </div>
+
+    </div>
+
+
+    <div class="profile-menu">
+
+        <div class="profile-item">
+            📍 Localização
+            <br>
+            <small>Luanda, Angola</small>
+        </div>
+
+        <div class="profile-item">
+            🛠️ Serviços
+            <br>
+            <small>Serviços disponíveis</small>
+        </div>
+
+        <div class="profile-item">
+            📄 Documentação
+            <br>
+            <small>Documentação verificada</small>
+        </div>
+
+        <div class="profile-item">
+            ⭐ Avaliações
+            <br>
+            <small>4.9 / 5</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MODAL PEDIDO
+===================================================== -->
+
+<div class="modal" id="requestModal">
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div>
+
+                <h2>O que precisas?</h2>
+
+                <p
+                    style="font-size:11px;color:#7A8493;margin-top:5px;">
+                    Encontre a pessoa certa para resolver.
+                </p>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharPedido()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Serviço ou profissão
+            </label>
+
+            <input
+                class="input"
+                id="requestService"
+                list="allServices"
+                placeholder="Ex.: Engenheiro, médico..."
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Onde precisa?
+            </label>
+
+            <input
+                class="input"
+                id="requestLocation"
+                placeholder="Ex.: Talatona, Luanda"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Quando precisa?
+            </label>
+
+            <select id="requestTime">
+
+                <option>Agora</option>
+                <option>Hoje</option>
+                <option>Amanhã</option>
+                <option>Outra data</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Descreva o que precisa
+            </label>
+
+            <textarea
+                id="requestDescription"
+                placeholder="Explique brevemente..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Urgência
+            </label>
+
+            <select id="requestUrgency">
+
+                <option>Normal</option>
+                <option>Urgente</option>
+                <option>Muito urgente</option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="primary"
+            onclick="procurarProfissionais()">
+
+            Encontrar profissionais
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL TIPO DE CONTA
+===================================================== -->
+
+<div class="modal" id="accountModal">
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <h2>Criar conta</h2>
+
+            <button
+                class="close"
+                onclick="fecharContaModal()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <div class="account-options">
+
+            <div
+                class="account-option"
+                onclick="abrirContaSimples()">
+
+                <strong>
+                    👤 Pessoa / profissional comum
+                </strong>
+
+                <small>
+                    Nome, Bilhete de Identidade,
+                    profissão, telefone e localização.
+                </small>
+
+            </div>
+
+
+            <div
+                class="account-option"
+                onclick="abrirContaProfissional()">
+
+                <strong>
+                    🎓 Profissional qualificado
+                </strong>
+
+                <small>
+                    Para profissionais que pretendem
+                    comprovar a sua formação académica
+                    ou qualificação profissional.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTA SIMPLES
+===================================================== -->
+
+<div class="modal" id="simpleAccountModal">
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div>
+
+                <h2>Conta simples</h2>
+
+                <p
+                    style="font-size:11px;color:#7A8493;">
+                    Registo rápido e simples.
+                </p>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharTodosModais()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nome completo</label>
+
+            <input
+                class="input"
+                placeholder="Digite o seu nome"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Bilhete de Identidade</label>
+
+            <input
+                class="input"
+                placeholder="Número do BI"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Profissão / actividade</label>
+
+            <input
+                class="input"
+                list="allServices"
+                placeholder="Ex.: Mecânico"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Número de telefone</label>
+
+            <input
+                class="input"
+                type="tel"
+                placeholder="9XX XXX XXX"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Província</label>
+
+            <select>
+
+                <option>Luanda</option>
+                <option>Benguela</option>
+                <option>Huíla</option>
+                <option>Huambo</option>
+                <option>Malanje</option>
+                <option>Moxico</option>
+                <option>Cabinda</option>
+                <option>Zaire</option>
+                <option>Uíge</option>
+                <option>Bié</option>
+                <option>Cuando Cubango</option>
+                <option>Cuanza Norte</option>
+                <option>Cuanza Sul</option>
+                <option>Cunene</option>
+                <option>Namibe</option>
+                <option>Bengo</option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="primary"
+            onclick="criarConta('normal')">
+
+            Criar minha conta
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTA PROFISSIONAL
+===================================================== -->
+
+<div class="modal" id="professionalAccountModal">
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div>
+
+                <h2>Conta profissional</h2>
+
+                <p
+                    style="font-size:11px;color:#7A8493;">
+                    Verificação de qualificações.
+                </p>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharTodosModais()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <div class="verification">
+
+            <strong>
+                🎓 Verificação profissional
+            </strong>
+
+            <p>
+                O Resolve Já poderá solicitar documentos
+                que comprovem a formação ou qualificação
+                indicada no perfil.
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nome completo</label>
+
+            <input
+                class="input"
+                placeholder="Nome completo"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Bilhete de Identidade</label>
+
+            <input
+                class="input"
+                placeholder="Número do BI"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Telefone</label>
+
+            <input
+                class="input"
+                type="tel"
+                placeholder="9XX XXX XXX"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Profissão</label>
+
+            <input
+                class="input"
+                list="allServices"
+                placeholder="Ex.: Engenheiro Civil"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Nível de formação</label>
+
+            <select id="academicLevel">
+
+                <option value="">
+                    Seleccione
+                </option>
+
+                <option>
+                    Técnico / Formação profissional
+                </option>
+
+                <option>
+                    Licenciatura
+                </option>
+
+                <option>
+                    Pós-graduação
+                </option>
+
+                <option>
+                    Mestrado
+                </option>
+
+                <option>
+                    Doutoramento
+                </option>
+
+                <option>
+                    Outra qualificação profissional
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Instituição de formação</label>
+
+            <input
+                class="input"
+                placeholder="Nome da instituição"
+            >
+
+        </div>
+
+
+        <label
+            style="font-size:12px;font-weight:bold;">
+            Documento de qualificação
+        </label>
+
+
+        <div
+            class="upload"
+            onclick="document.getElementById('certificate').click()">
+
+            <span>📄</span>
+
+            <p>
+                Carregar certificado,
+                diploma ou documento comprovativo
+            </p>
+
+        </div>
+
+        <input
+            type="file"
+            id="certificate"
+            accept=".pdf,.jpg,.jpeg,.png"
+            style="display:none;"
+            onchange="mostrarDocumento(this)"
+        >
+
+
+        <p
+            id="fileName"
+            style="font-size:11px;color:#18A965;margin-bottom:15px;">
+        </p>
+
+
+        <button
+            class="primary"
+            onclick="criarConta('profissional')">
+
+            Enviar para verificação
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DATALIST
+===================================================== -->
+
+<datalist id="allServices"></datalist>
+
+
+<!-- =====================================================
+     MENU INFERIOR
+===================================================== -->
+
+<nav class="bottom">
+
+    <div
+        class="nav active"
+        onclick="voltarHome()">
+
+        <span class="nav-icon">⌂</span>
+        Início
+
+    </div>
+
+
+    <div
+        class="nav"
+        onclick="abrirMais()">
+
+        <span class="nav-icon">⌕</span>
+        Explorar
+
+    </div>
+
+
+    <div
+        class="center"
+        onclick="abrirPedido()">
+
+        +
+
+    </div>
+
+
+    <div
+        class="nav"
+        onclick="mostrarResultados()">
+
+        <span class="nav-icon">📋</span>
+        Pedidos
+
+    </div>
+
+
+    <div
+        class="nav"
+        onclick="abrirMais()">
+
+        <span class="nav-icon">•••</span>
+        Mais
+
+    </div>
+
+</nav>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   BANCO DE PROFISSÕES
+===================================================== */
+
+const categorias = {
+
+"Construção e Engenharia":[
+"Engenheiro Civil",
+"Engenheiro de Estruturas",
+"Engenheiro Hidráulico",
+"Engenheiro Electrotécnico",
+"Engenheiro Mecânico",
+"Engenheiro de Produção",
+"Engenheiro Industrial",
+"Arquitecto",
+"Topógrafo",
+"Geólogo",
+"Fiscal de Obras",
+"Mestre de Obras",
+"Pedreiro",
+"Canalizador",
+"Electricista",
+"Carpinteiro",
+"Marceneiro",
+"Serralheiro",
+"Soldador",
+"Pintor",
+"Estucador",
+"Aplicador de Pladur",
+"Colocador de Azulejos",
+"Montador de Alumínio",
+"Vidreiro",
+"Jardineiro"
+],
+
+"Saúde":[
+"Médico",
+"Clínico Geral",
+"Pediatra",
+"Cardiologista",
+"Dermatologista",
+"Ginecologista",
+"Obstetra",
+"Urologista",
+"Neurologista",
+"Psiquiatra",
+"Psicólogo",
+"Nutricionista",
+"Fisioterapeuta",
+"Enfermeiro",
+"Técnico de Enfermagem",
+"Parteira",
+"Farmacêutico",
+"Técnico de Farmácia",
+"Médico Dentista",
+"Ortodontista",
+"Optometrista",
+"Terapeuta da Fala",
+"Técnico de Laboratório",
+"Técnico de Radiologia",
+"Cuidador de Idosos",
+"Socorrista"
+],
+
+"Educação":[
+"Professor",
+"Professor Primário",
+"Professor de Matemática",
+"Professor de Física",
+"Professor de Química",
+"Professor de Biologia",
+"Professor de Português",
+"Professor de Inglês",
+"Professor de Francês",
+"Professor de História",
+"Professor de Geografia",
+"Professor de Economia",
+"Professor de Contabilidade",
+"Professor Universitário",
+"Explicador",
+"Educador de Infância",
+"Pedagogo",
+"Formador Profissional"
+],
+
+"Tecnologia":[
+"Programador",
+"Desenvolvedor Web",
+"Desenvolvedor Mobile",
+"Engenheiro de Software",
+"Analista de Sistemas",
+"Técnico de Informática",
+"Técnico de Redes",
+"Administrador de Redes",
+"Cibersegurança",
+"Analista de Dados",
+"Cientista de Dados",
+"Especialista em Inteligência Artificial",
+"Designer UI/UX",
+"Designer Gráfico",
+"Editor de Vídeo",
+"Fotógrafo",
+"Videógrafo",
+"Social Media",
+"Marketing Digital",
+"Técnico de Computadores",
+"Reparador de Telemóveis",
+"Instalador de Internet",
+"Técnico de Fibra Óptica"
+],
+
+"Automóvel":[
+"Mecânico",
+"Electricista Auto",
+"Diagnóstico Automóvel",
+"Chapista",
+"Pintor Automóvel",
+"Bate-Chapa",
+"Vulcanizador",
+"Reparador de Motores",
+"Reparador de Travões",
+"Mecânico de Motorizadas",
+"Mecânico de Camiões",
+"Motorista",
+"Motorista Particular",
+"Motorista Executivo",
+"Estafeta",
+"Entregador",
+"Motoboy",
+"Reboque",
+"Lavagem Automóvel",
+"Polimento Automóvel"
+],
+
+"Casa":[
+"Empregada Doméstica",
+"Babá",
+"Cuidador",
+"Limpeza Residencial",
+"Limpeza Comercial",
+"Limpeza Pós-Obra",
+"Limpeza de Sofás",
+"Lavandaria",
+"Engomadoria",
+"Cozinheiro",
+"Chef Particular",
+"Pasteleiro",
+"Jardineiro",
+"Tratador de Piscinas",
+"Manutenção de Piscinas",
+"Dedetização",
+"Costureiro",
+"Alfaiate",
+"Sapateiro"
+],
+
+"Jurídico":[
+"Advogado",
+"Advogado Criminal",
+"Advogado Civil",
+"Advogado de Família",
+"Advogado Empresarial",
+"Advogado Imobiliário",
+"Jurista",
+"Consultor Jurídico",
+"Solicitador",
+"Notário",
+"Despachante",
+"Consultor de Documentação",
+"Consultor de Imigração",
+"Tradutor Juramentado",
+"Intérprete"
+],
+
+"Economia e Negócios":[
+"Economista",
+"Gestor",
+"Administrador",
+"Consultor Empresarial",
+"Consultor Financeiro",
+"Analista Financeiro",
+"Analista Económico",
+"Analista de Mercado",
+"Contabilista",
+"Auditor",
+"Consultor Fiscal",
+"Gestor de Recursos Humanos",
+"Recrutador",
+"Assistente Administrativo",
+"Gestor de Projectos",
+"Gestor Comercial",
+"Vendedor",
+"Corretor de Imóveis",
+"Agente Imobiliário"
+],
+
+"Agricultura":[
+"Agrónomo",
+"Técnico Agrícola",
+"Veterinário",
+"Técnico Veterinário",
+"Zootécnico",
+"Produtor Agrícola",
+"Avicultor",
+"Suinicultor",
+"Piscicultor",
+"Apicultor",
+"Tratador de Animais",
+"Técnico de Irrigação",
+"Gestor de Fazenda"
+],
+
+"Indústria":[
+"Técnico Industrial",
+"Operador de Máquinas",
+"Operador de Produção",
+"Técnico de Manutenção",
+"Mecânico Industrial",
+"Electricista Industrial",
+"Soldador Industrial",
+"Torneiro Mecânico",
+"Controlador de Qualidade",
+"Supervisor de Produção",
+"Gestor de Produção",
+"Técnico de Refrigeração"
+],
+
+"Beleza":[
+"Cabeleireiro",
+"Barbeiro",
+"Manicure",
+"Pedicure",
+"Maquilhador",
+"Esteticista",
+"Massagista",
+"Designer de Sobrancelhas",
+"Especialista em Pestanas",
+"Trancista",
+"Colorista",
+"Depiladora",
+"Personal Stylist"
+],
+
+"Eventos e Cultura":[
+"Organizador de Eventos",
+"Wedding Planner",
+"Decorador",
+"Fotógrafo",
+"Videógrafo",
+"DJ",
+"MC",
+"Animador",
+"Grupo Musical",
+"Sonorização",
+"Iluminação",
+"Florista",
+"Cantor",
+"Músico",
+"Compositor",
+"Produtor Musical",
+"Dançarino",
+"Coreógrafo",
+"Actor"
+],
+
+"Turismo e Hotelaria":[
+"Agente de Viagens",
+"Guia Turístico",
+"Recepcionista",
+"Recepcionista de Hotel",
+"Camareiro",
+"Garçom",
+"Barman",
+"Cozinheiro",
+"Chef",
+"Gestor Hoteleiro",
+"Gestor de Turismo",
+"Motorista Turístico"
+],
+
+"Segurança":[
+"Vigilante",
+"Segurança Privada",
+"Chefe de Segurança",
+"Supervisor de Segurança",
+"Técnico de CCTV",
+"Instalador de Alarmes",
+"Segurança de Eventos",
+"Consultor de Segurança"
+],
+
+"Serviços Pessoais":[
+"Personal Trainer",
+"Treinador Desportivo",
+"Professor de Dança",
+"Professor de Música",
+"Babá",
+"Cuidador",
+"Massagista",
+"Personal Shopper",
+"Assistente Pessoal",
+"Passeador de Cães",
+"Cuidador de Animais",
+"Adestrador de Animais"
+]
+
+};
+
+
+/* =====================================================
+   PREPARAR PROFISSÕES
+===================================================== */
+
+const categoriesContainer =
+document.getElementById("categoriesContainer");
+
+const allServices =
+document.getElementById("allServices");
+
+let listaServicos=[];
+
+
+Object.keys(categorias).forEach(categoria=>{
+
+    const group=document.createElement("div");
+
+    group.className="category-group";
+
+    group.dataset.category=categoria;
+
+    group.innerHTML=`
+
+        <div
+            class="category-title"
+            onclick="toggleCategory(this.parentElement)">
+
+            <span>${categoria}</span>
+
+            <span>⌄</span>
+
+        </div>
+
+        <div class="services"></div>
+    `;
+
+
+    const services=
+    group.querySelector(".services");
+
+
+    categorias[categoria].forEach(servico=>{
+
+        listaServicos.push(servico);
+
+
+        const item=
+        document.createElement("div");
+
+        item.className="service";
+
+        item.innerText=servico;
+
+        item.onclick=()=>{
+
+            document.getElementById(
+                "requestService"
+            ).value=servico;
+
+            abrirPedido();
+
+        };
+
+        services.appendChild(item);
+
+
+        const option=
+        document.createElement("option");
+
+        option.value=servico;
+
+        allServices.appendChild(option);
+
+    });
+
+
+    categoriesContainer.appendChild(group);
+
+});
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+function esconderPaginas(){
+
+    document.querySelectorAll(".page")
+    .forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+}
+
+
+function voltarHome(){
+
+    fecharTodosModais();
+
+    esconderPaginas();
+
+    document.getElementById("home")
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function abrirMais(){
+
+    esconderPaginas();
+
+    document.getElementById("morePage")
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+
+}
+
+
+function mostrarResultados(){
+
+    esconderPaginas();
+
+    document.getElementById("resultsPage")
+    .classList.add("active");
+
+    gerarResultados(
+        document.getElementById("homeSearch").value ||
+        "Serviços"
+    );
+
+}
+
+
+/* =====================================================
+   PESQUISA HOME
+===================================================== */
+
+function pesquisarHome(){
+
+    const value=
+    document.getElementById("homeSearch")
+    .value.trim();
+
+    if(value.length>=2){
+
+        document.getElementById(
+            "requestService"
+        ).value=value;
+
+        abrirPedido();
+
+    }
+
+}
+
+
+function selecionarServico(servico){
+
+    document.getElementById(
+        "requestService"
+    ).value=servico;
+
+    abrirPedido();
+
+}
+
+
+/* =====================================================
+   CATEGORIAS
+===================================================== */
+
+function toggleCategory(element){
+
+    element.classList.toggle("open");
+
+}
+
+
+function filtrarCategorias(){
+
+    const termo=
+    document.getElementById("categorySearch")
+    .value.toLowerCase();
+
+    document.querySelectorAll(".category-group")
+    .forEach(group=>{
+
+        const categoria=
+        group.dataset.category.toLowerCase();
+
+        let encontrou=false;
+
+
+        group.querySelectorAll(".service")
+        .forEach(service=>{
+
+            const nome=
+            service.innerText.toLowerCase();
+
+            if(nome.includes(termo)){
+
+                service.style.display="block";
+
+                encontrou=true;
+
+            }else{
+
+                service.style.display="none";
+
+            }
+
+        });
+
+
+        if(categoria.includes(termo)){
+
+            group.style.display="block";
+
+            encontrou=true;
+
+        }
+
+        else if(encontrou){
+
+            group.style.display="block";
+
+            group.classList.add("open");
+
+        }
+
+        else{
+
+            group.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   PEDIDO
+===================================================== */
+
+function abrirPedido(){
+
+    document.getElementById("requestModal")
+    .classList.add("active");
+
+}
+
+
+function fecharPedido(){
+
+    document.getElementById("requestModal")
+    .classList.remove("active");
+
+}
+
+
+function procurarProfissionais(){
+
+    const servico=
+    document.getElementById(
+        "requestService"
+    ).value;
+
+    const local=
+    document.getElementById(
+        "requestLocation"
+    ).value;
+
+    if(!servico){
+
+        alert("Digite o serviço que precisa.");
+
+        return;
+
+    }
+
+
+    fecharPedido();
+
+    esconderPaginas();
+
+    document.getElementById(
+        "resultsPage"
+    ).classList.add("active");
+
+
+    document.getElementById(
+        "searchDescription"
+    ).innerText=
+    servico+
+    " · "+
+    (local || "Localização não indicada");
+
+
+    gerarResultados(servico);
+
+}
+
+
+/* =====================================================
+   RESULTADOS
+===================================================== */
+
+function gerarResultados(servico){
+
+    const container=
+    document.getElementById(
+        "resultsContainer"
+    );
+
+    container.innerHTML="";
+
+
+    const profissionais=[
+
+        ["João Manuel","Electricista","Luanda","1,2 km","4.9","JM"],
+        ["Maria José","Profissional de Saúde","Luanda","1,8 km","4.8","MJ"],
+        ["Carlos António","Técnico","Talatona","2,4 km","4.8","CA"],
+        ["Pedro Manuel","Especialista","Camama","3,1 km","4.7","PM"]
+
+    ];
+
+
+    profissionais.forEach(p=>{
+
+        const div=
+        document.createElement("div");
+
+        div.className="result";
+
+        div.innerHTML=`
+
+            <div class="result-top">
+
+                <div class="result-photo">
+                    ${p[5]}
+                </div>
+
+                <div class="result-info">
+
+                    <h3>
+                        ${p[0]}
+                        <span style="color:#18A965">
+                        ✓
+                        </span>
+                    </h3>
+
+                    <p>
+                        ${p[1]}
+                    </p>
+
+                    <p>
+                        📍 ${p[2]} · ${p[3]}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-bottom">
+
+                <span class="rating">
+                    ★ ${p[4]}
+                </span>
+
+                <button
+                    class="contact"
+                    onclick="abrirPerfil('${p[0]}','${p[1]}')">
+
+                    Ver perfil
+
+                </button>
+
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   PERFIL
+===================================================== */
+
+function abrirPerfil(nome,profissao){
+
+    esconderPaginas();
+
+    document.getElementById(
+        "profilePage"
+    ).classList.add("active");
+
+    document.getElementById(
+        "profileName"
+    ).innerText=nome;
+
+    document.getElementById(
+        "profileProfession"
+    ).innerText=profissao;
+
+}
+
+
+/* =====================================================
+   CONTAS
+===================================================== */
+
+function abrirConta(){
+
+    document.getElementById(
+        "accountModal"
+    ).classList.add("active");
+
+}
+
+
+function abrirContaSimples(){
+
+    fecharTodosModais();
+
+    document.getElementById(
+        "simpleAccountModal"
+    ).classList.add("active");
+
+}
+
+
+function abrirContaProfissional(){
+
+    fecharTodosModais();
+
+    document.getElementById(
+        "professionalAccountModal"
+    ).classList.add("active");
+
+}
+
+
+function fecharContaModal(){
+
+    document.getElementById(
+        "accountModal"
+    ).classList.remove("active");
+
+}
+
+
+function fecharTodosModais(){
+
+    document.querySelectorAll(".modal")
+    .forEach(modal=>{
+
+        modal.classList.remove("active");
+
+    });
+
+}
+
+
+/* =====================================================
+   DOCUMENTO
+===================================================== */
+
+function mostrarDocumento(input){
+
+    const fileName=
+    document.getElementById("fileName");
+
+    if(input.files.length){
+
+        fileName.innerText=
+        "✓ Documento seleccionado: "+
+        input.files[0].name;
+
+    }
+
+}
+
+
+/* =====================================================
+   CRIAÇÃO DE CONTA
+===================================================== */
+
+function criarConta(tipo){
+
+    if(tipo==="normal"){
+
+        alert(
+            "Conta criada com sucesso! " +
+            "O seu perfil poderá agora ser utilizado " +
+            "para prestar serviços."
+        );
+
+    }else{
+
+        alert(
+            "Dados enviados para verificação. " +
+            "Após a validação dos documentos, " +
+            "o perfil poderá receber o selo de profissional verificado."
+        );
+
+    }
+
+    fecharTodosModais();
+
+}
+
+
+/* =====================================================
+   DEFINIÇÕES
+===================================================== */
+
+function abrirDefinicoes(){
+
+    alert(
+        "Definições\n\n" +
+        "• Notificações\n" +
+        "• Privacidade\n" +
+        "• Segurança\n" +
+        "• Localização\n" +
+        "• Idioma\n" +
+        "• Termos e condições"
+    );
+
+}
+
+
+/* =====================================================
+   LOCALIZAÇÃO
+===================================================== */
+
+if(navigator.geolocation){
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(){
+
+            document.getElementById(
+                "location"
+            ).innerText=
+            "Localização atual";
+
+        },
+
+        function(){
+
+            console.log(
+                "Localização não autorizada."
+            );
+
+        }
+
+    );
+
+}
+
+
+/* =====================================================
+   FECHAR MODAIS AO CLICAR FORA
+===================================================== */
+
+document.querySelectorAll(".modal")
+.forEach(modal=>{
+
+    modal.addEventListener(
+        "click",
+        function(e){
+
+            if(e.target===modal){
+
+                modal.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
